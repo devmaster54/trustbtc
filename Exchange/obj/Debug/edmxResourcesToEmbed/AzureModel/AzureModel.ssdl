@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="exchange_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="exchange_dbModelStoreContainer">
+    <EntitySet Name="shufti_log" EntityType="exchange_dbModel.Store.shufti_log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="trans_history" EntityType="exchange_dbModel.Store.trans_history" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user_table" EntityType="exchange_dbModel.Store.user_table" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_user_buyer" Association="exchange_dbModel.Store.FK_user_buyer">
+      <End Role="user_table" EntitySet="user_table" />
+      <End Role="trans_history" EntitySet="trans_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_seller" Association="exchange_dbModel.Store.FK_user_seller">
+      <End Role="user_table" EntitySet="user_table" />
+      <End Role="trans_history" EntitySet="trans_history" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="shufti_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="true" />
+    <Property Name="status" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="declined_reason" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="first_name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="birthday" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="document_number" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="expiry_date" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="issue_date" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="trans_history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="buyer" Type="int" Nullable="true" />
+    <Property Name="seller" Type="int" Nullable="true" />
+    <Property Name="btc" Type="float" Nullable="true" />
+    <Property Name="cash" Type="float" Nullable="true" />
+    <Property Name="holdBTC" Type="bit" Nullable="true" />
+    <Property Name="sentBTC" Type="bit" Nullable="true" />
+    <Property Name="sentCash" Type="bit" Nullable="true" />
+    <Property Name="recieveCash" Type="bit" Nullable="true" />
+    <Property Name="holdTransID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="sentTransID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="status" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="holdWallet" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="buyerWallet" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="firstname_seller" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="lastname_seller" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="IBAN" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="SWIFT" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="REFERENCE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="sellTime" Type="datetime" Nullable="true" />
+    <Property Name="buyTime" Type="datetime" Nullable="true" />
+    <Property Name="holdAmount" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="user_table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="lastname" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="emailVerified" Type="bit" Nullable="true" />
+    <Property Name="emailCode" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="IBAN" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="SWIFT" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="country" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="signup" Type="datetime" Nullable="true" />
+    <Property Name="listme" Type="bit" Nullable="true" />
+    <Property Name="qrkey" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="phoneVerified" Type="bit" Nullable="true" />
+    <Property Name="kycVerified" Type="bit" Nullable="true" />
+    <Property Name="birthday" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="beneficiery" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="bank" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="check_btc" Type="bit" Nullable="true" />
+    <Property Name="check_eth" Type="bit" Nullable="true" />
+    <Property Name="btc_cash" Type="bit" Nullable="true" />
+    <Property Name="eth_cash" Type="bit" Nullable="true" />
+    <Property Name="btc_cash_com" Type="float" Nullable="true" />
+    <Property Name="eth_cash_com" Type="float" Nullable="true" />
+    <Property Name="btc_wire" Type="bit" Nullable="true" />
+    <Property Name="eth_wire" Type="bit" Nullable="true" />
+    <Property Name="btc_wire_com" Type="float" Nullable="true" />
+    <Property Name="eth_wire_com" Type="float" Nullable="true" />
+    <Property Name="from_cash" Type="float" Nullable="true" />
+    <Property Name="to_cash" Type="float" Nullable="true" />
+    <Property Name="qrScanned" Type="bit" Nullable="true" />
+  </EntityType>
+  <Association Name="FK_user_buyer">
+    <End Role="user_table" Type="exchange_dbModel.Store.user_table" Multiplicity="0..1" />
+    <End Role="trans_history" Type="exchange_dbModel.Store.trans_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_table">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_history">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_seller">
+    <End Role="user_table" Type="exchange_dbModel.Store.user_table" Multiplicity="0..1" />
+    <End Role="trans_history" Type="exchange_dbModel.Store.trans_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_table">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trans_history">
+        <PropertyRef Name="seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

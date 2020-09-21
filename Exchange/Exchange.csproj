@@ -219,7 +219,6 @@
       <DependentUpon>AzureModel.edmx</DependentUpon>
       <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="AzureModel\AzureModel.edmx.sql" />
     <Content Include="AzureModel\AzureModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AzureModel.edmx</DependentUpon>

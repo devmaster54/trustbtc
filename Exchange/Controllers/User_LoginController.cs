@@ -110,7 +110,7 @@ namespace Exchange.Controllers
                     }
                 }                
             }
-            catch
+            catch(Exception ex)
             {
                 message = "Database connection failed!";
             }
@@ -120,13 +120,14 @@ namespace Exchange.Controllers
         [HttpGet]
         public ActionResult Registeration()
         {
-            ViewData["phoneNumber"] = Session["phoneNumber"].ToString();
+            //ViewData["phoneNumber"] = Session["phoneNumber"].ToString();
             return View();
         }
         public ActionResult getStarted()
         {
             Session["phone_next_url"] = "/User_Login/Registeration";
-            return RedirectToAction("phoneVerify", "Verify");
+         //   return RedirectToAction("phoneVerify", "Verify");
+            return RedirectToAction("Registeration", "User_Login");
         }
         [HttpGet]
         public ActionResult VerifyAccount(string id)

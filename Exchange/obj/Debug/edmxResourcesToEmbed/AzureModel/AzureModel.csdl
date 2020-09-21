@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="exchange_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="exdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="shufti_log">
     <Key>
       <PropertyRef Name="id" />
@@ -60,7 +60,7 @@
     <Property Name="SWIFT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="signup" Type="DateTime" Precision="0" />
+    <Property Name="signup" Type="DateTime" Precision="3" />
     <Property Name="listme" Type="Boolean" />
     <Property Name="qrkey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -81,9 +81,9 @@
     <Property Name="eth_wire_com" Type="Double" />
     <Property Name="from_cash" Type="Double" />
     <Property Name="to_cash" Type="Double" />
+    <Property Name="qrScanned" Type="Boolean" />
     <NavigationProperty Name="trans_history" Relationship="Self.FK_user_buyer" FromRole="user_table" ToRole="trans_history" />
     <NavigationProperty Name="trans_history1" Relationship="Self.FK_user_seller" FromRole="user_table" ToRole="trans_history" />
-    <Property Name="qrScanned" Type="Boolean" />
   </EntityType>
   <Association Name="FK_user_buyer">
     <End Role="user_table" Type="Self.user_table" Multiplicity="0..1" />

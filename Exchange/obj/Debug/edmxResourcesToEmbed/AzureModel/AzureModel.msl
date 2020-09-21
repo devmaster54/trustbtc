@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="exchange_dbModelStoreContainer" CdmEntityContainer="AzureConnection">
+  <EntityContainerMapping StorageEntityContainer="exdbModelStoreContainer" CdmEntityContainer="AzureConnection">
     <EntitySetMapping Name="shufti_log">
-      <EntityTypeMapping TypeName="IsTypeOf(exchange_dbModel.shufti_log)">
+      <EntityTypeMapping TypeName="exdbModel.shufti_log">
         <MappingFragment StoreEntitySet="shufti_log">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="time" ColumnName="time" />
@@ -18,7 +18,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="trans_history">
-      <EntityTypeMapping TypeName="IsTypeOf(exchange_dbModel.trans_history)">
+      <EntityTypeMapping TypeName="exdbModel.trans_history">
         <MappingFragment StoreEntitySet="trans_history">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="buyer" ColumnName="buyer" />
@@ -46,7 +46,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="user_table">
-      <EntityTypeMapping TypeName="IsTypeOf(exchange_dbModel.user_table)">
+      <EntityTypeMapping TypeName="exdbModel.user_table">
         <MappingFragment StoreEntitySet="user_table">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
